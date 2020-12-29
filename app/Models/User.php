@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         $this->hasMany(Location::class, 'user_id');
     }
+
+    public function favorites()
+    {
+        $this->hasMany(Location::class, 'user_id');
+    }
 }
