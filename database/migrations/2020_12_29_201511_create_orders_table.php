@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->cascadeOnDelete();
-            $table->timestamp('receive_time');
+            $table->timestamp('post_time');
             $table->enum('status',['waiting', 'Processing', 'accepted', 'posted', 'delivered']);
             $table->integer('discount')->nullable();
             $table->enum('payment', ['cash','online']);

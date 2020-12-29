@@ -21,4 +21,9 @@ class Order extends Model
     {
         $this->hasMany(Payment::class,'order_id');
     }
+
+    public function shipments()
+    {
+        $this->hasMany(Shipment::class,'order_id');
+    }
 }
