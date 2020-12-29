@@ -20,4 +20,9 @@ class Comment extends Model
     {
         $this->hasOne(Product::class);
     }
+
+    public function likes()
+    {
+        $this->hasMany(Like::class, 'comment_id');
+    }
 }
