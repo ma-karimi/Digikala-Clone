@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
         $this->hasMany(Rate::class, 'user_id');
     }
+
+    public function comments()
+    {
+    $this->hasMany(Comment::class, 'user_id');
+    }
 }

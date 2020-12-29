@@ -25,4 +25,9 @@ class Product extends Model
     {
         $this->hasMany(Rate::class, 'product_id');
     }
+
+    public function comments()
+    {
+        $this->hasMany(Comment::class, 'product_id');
+    }
 }
