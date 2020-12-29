@@ -15,12 +15,12 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id');
-            $table->foreignId('user_id')
+            $table->foreignId('user_id');
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->cascadeOnDelete();
-            $table->string('location');
+                ->onDelete('cascade');
+            $table->geometry('location');
             $table->string('state');
             $table->string('city');
             $table->string('address');

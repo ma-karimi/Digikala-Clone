@@ -15,13 +15,13 @@ class CreateRatesTable extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id');
-            $table->foreignId('user_id')
+            $table->foreignId('user_id');
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->cascadeOnDelete();
-            $table->foreign('product_id');
-            $table->foreignId('product_id')
+            $table->foreignId('product_id');
+            $table->foreign('product_id')
                 ->references('id')
                 ->on('products')
                 ->cascadeOnDelete();

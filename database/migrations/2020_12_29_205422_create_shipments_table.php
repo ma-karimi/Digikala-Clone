@@ -15,12 +15,11 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
-            $table->foreign('order_id');
-            $table->foreignId('order_id')
+            $table->foreignId('order_id');
+            $table->foreign('order_id')
                 ->references('id')
                 ->on('orders')
                 ->cascadeOnDelete();
-            $table->string('carier_name');
             $table->string('carier_name');
             $table->timestamp('received_time');
         });
