@@ -20,4 +20,9 @@ class Product extends Model
     {
         $this->belongsToMany(Category::class);
     }
+
+    public function rates()
+    {
+        $this->hasMany(Rate::class, 'product_id');
+    }
 }
