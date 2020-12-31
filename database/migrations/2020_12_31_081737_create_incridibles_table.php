@@ -17,7 +17,7 @@ class CreateIncridiblesTable extends Migration
             $table->id();
             $table->enum('location',['main','category']);
             $table->foreignId('category_id')->nullable();
-            $table->foreignId("category_id")
+            $table->foreign("category_id")
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete();
