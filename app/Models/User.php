@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         $this->hasMany(Like::class, 'user_id');
     }
+
+    public function lastseens()
+    {
+        $this->hasMany(Lastseen::class, 'user_id');
+    }
 }
