@@ -20,4 +20,9 @@ class Category extends Model
     {
         $this->hasOne(Category::class);
     }
+
+    public function incridible()
+    {
+        $this->hasOne(Category::class);
+    }
 }

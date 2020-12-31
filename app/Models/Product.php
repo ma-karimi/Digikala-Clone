@@ -45,4 +45,9 @@ class Product extends Model
     {
         $this->belongsToMany(Slider::class);
     }
+
+    public function incridibles()
+    {
+        $this->belongsToMany(Incridible::class);
+    }
 }
