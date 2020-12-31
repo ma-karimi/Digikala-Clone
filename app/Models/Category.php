@@ -15,4 +15,9 @@ class Category extends Model
     {
         $this->belongsToMany(Product::class);
     }
+
+    public function slider()
+    {
+        $this->hasOne(Category::class);
+    }
 }

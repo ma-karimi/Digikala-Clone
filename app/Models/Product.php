@@ -40,4 +40,9 @@ class Product extends Model
     {
         $this->hasOne(Brand::class);
     }
+
+    public function sliders()
+    {
+        $this->belongsToMany(Slider::class);
+    }
 }
