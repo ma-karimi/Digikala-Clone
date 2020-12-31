@@ -15,4 +15,14 @@ class Category extends Model
     {
         $this->belongsToMany(Product::class);
     }
+
+    public function slider()
+    {
+        $this->hasOne(Slider::class);
+    }
+
+    public function incridible()
+    {
+        $this->hasOne(Incridible::class);
+    }
 }

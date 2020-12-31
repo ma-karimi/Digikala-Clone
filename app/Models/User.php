@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function favorites()
     {
-        $this->hasMany(Location::class, 'user_id');
+        $this->hasMany(Favorite::class, 'user_id');
     }
 
     public function orders()
@@ -72,5 +72,10 @@ class User extends Authenticatable
     public function likes()
     {
         $this->hasMany(Like::class, 'user_id');
+    }
+
+    public function lastseens()
+    {
+        $this->hasMany(Lastseen::class, 'user_id');
     }
 }

@@ -18,7 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('en-title');
             $table->string('slug');
-            $table->string('brand');
+            $table->foreignId('brand_id');
+            $table->foreign('brand_id')
+                ->references('id')
+                ->on('brands')
+                ->cascadeOnDelete();
             $table->enum('status',['draft', 'waiting', 'published', 'denied', 'unavailable']);
             $table->json('detail');
             $table->timestamps();

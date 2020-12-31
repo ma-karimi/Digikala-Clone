@@ -31,4 +31,14 @@ class Order extends Model
     {
         $this->belongsToMany(Product::class);
     }
+
+    public function discount()
+    {
+        $this->hasOne(Discount::class);
+    }
+
+    public function factor()
+    {
+        $this->hasOne(Factor::class);
+    }
 }
