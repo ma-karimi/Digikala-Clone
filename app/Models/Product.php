@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'en_title', 'slug', 'brand', 'status', 'json'];
+    protected $fillable = ['title', 'en_title', 'slug', 'brand_id', 'status', 'json'];
 
     public function orders()
     {
@@ -34,5 +34,10 @@ class Product extends Model
     public function image()
     {
         return $this->morphOne(Image::class,'imageable');
+    }
+
+    public function brand()
+    {
+        $this->hasOne(Brand::class);
     }
 }
