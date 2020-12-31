@@ -16,7 +16,7 @@ class Like extends Model
         $this->hasOne(Comment::class);
     }
 
-    public function comment()
+    public function user()
     {
         $this->hasOne(User::class);
     }

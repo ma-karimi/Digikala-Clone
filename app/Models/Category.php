@@ -18,11 +18,11 @@ class Category extends Model
 
     public function slider()
     {
-        $this->hasOne(Category::class);
+        $this->hasOne(Slider::class);
     }
 
     public function incridible()
     {
-        $this->hasOne(Category::class);
+        $this->hasOne(Incridible::class);
     }
 }

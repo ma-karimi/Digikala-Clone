@@ -13,6 +13,6 @@ class Brand extends Model
 
     public function products()
     {
-        $this->hasMany(Comment::class, 'brand_id');
+        $this->hasMany(Product::class, 'brand_id');
     }
 }

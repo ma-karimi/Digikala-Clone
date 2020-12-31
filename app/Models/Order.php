@@ -36,4 +36,9 @@ class Order extends Model
     {
         $this->hasOne(Discount::class);
     }
+
+    public function factor()
+    {
+        $this->hasOne(Factor::class);
+    }
 }

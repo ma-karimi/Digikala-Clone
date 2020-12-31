@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function favorites()
     {
-        $this->hasMany(Location::class, 'user_id');
+        $this->hasMany(Favorite::class, 'user_id');
     }
 
     public function orders()
