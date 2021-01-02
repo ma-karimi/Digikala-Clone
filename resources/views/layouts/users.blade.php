@@ -55,7 +55,6 @@
                         <a class="m-2 btn" href="">{{ __('Favorites') }}</a>
                         <a class="m-2 btn" href="">{{ __('Comments') }}</a>
                         <a class="m-2 btn" href="">{{ __('Locations') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Site Setting') }}</a>
                         <a class="m-2 btn" href="">{{ __('Lastseens') }}</a>
                     @endhasrole
                     <form action="{{ route('logout') }}" method="POST"> @csrf
