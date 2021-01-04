@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <span class="text-danger font-weight-bolder">{{ config('app.name', 'Laravel') }}</span>
             </a>
         </div>
     </nav>
@@ -44,9 +44,9 @@
                     <span class="font-weight-bold text-capitalize mt-2">{{auth()->user()->name}}</span>
                     <span class="form-control-sm text-muted ">{{auth()->user()->mobile}}</span>
                     <a class="m-2 btn" href="{{route('dashboard')}}">{{ __('User Dashboard') }}</a>
-                    @hasrole('admin')
+                    @hasanyrole('super-admin|admin')
                         <a class="m-2 btn" href="">{{ __('Orders') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Users') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Users') }}</a>
                         <a class="m-2 btn" href="">{{ __('Accountants') }}</a>
                         <a class="m-2 btn" href="">{{ __('Discounts') }}</a>
                         <a class="m-2 btn" href="">{{ __('Site Setting') }}</a>
