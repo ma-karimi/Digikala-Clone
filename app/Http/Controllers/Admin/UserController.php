@@ -4,11 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Repository\Interfaces\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,24 +28,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $sort = request()->sort;
-
-        switch ($sort) {
-            case 'all':
-            case null:
-            default:
-                $users = User::paginate(5);
-            return view('admin.users.index')->withUsers($users);
-            case 'active':
-                $users = User::where('status', 1)->paginate(5);
-                return view('admin.users.index')->withUsers($users);
-            case 'deactive':
-                $users = User::where('status', 0)->paginate(5);
-                return view('admin.users.index')->withUsers($users);
-            case 'admin':
-                $users = User::role('admin')->paginate(5);
-                return view('admin.users.index')->withUsers($users);
-        }
+        $users = $this->userRepository->all();
+        return view('admin.users.index')->withUsers($users);
     }
 
     /**
@@ -46,17 +42,6 @@ class UserController extends Controller
     {
         $roles = Role::all();
         return view('admin.users.show')->withUser($user)->withRoles($roles);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
     }
 
     /**
@@ -79,7 +64,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+        $users = $this->userRepository->destroy($user);
         return redirect()->route('admin.users.index');
     }
 }
