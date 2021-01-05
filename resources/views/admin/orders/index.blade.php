@@ -36,29 +36,14 @@
                                 @forelse($orders as $order)
                                     <div class="card">
 
-                                        <div class="card-header">
-                                            <div class="row justify-content-between">
-                                                <div>
-                                                    <span class="mx-3">{{$order->created_at}}</span>
-                                                    <span><i class="far fa-circle"></i></span>
-                                                    <span class="mx-3">{{"#DKC-".$order->id}}</span>
-                                                    <span><i class="far fa-circle"></i></span>
-                                                    <span class="mx-3">{{ucfirst($order->status)}}</span>
-                                                </div>
-                                                <a class="mx-5" href="{{route('admin.orders.show',$order)}}">{{__('More Detail')}}</a>
-                                            </div>
-                                            <div>
-                                                <span class="mx-1">{{__('Total Price')}}</span>
-                                                <span class="mx-1 font-weight-bold">{{$order->payment}}</span>
-                                            </div>
-                                        </div>
+                                        @component('components.order-header',['date'=>$order->created_at,'id'=>$order->id,
+                                    'status'=>$order->status,'order'=>$order,'payment'=>$order->payment])
+                                        @endcomponent
 
                                         <div class="card-body">
                                             <p>{{__('Order Content')}}</p>
                                             <div class="row">
-{{--                                                @foreach($orders->products as $product)--}}
-{{--                                                    <img style="width: 60px" class="mx-2 mb-3" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">--}}
-{{--                                                @endforeach--}}
+                                                {{--<!-- Need Foreach image order -->--}}
                                                 <img style="width: 60px" class="mx-2 mb-3" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">
                                                 <img style="width: 60px" class="mx-2 mb-3" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">
                                             </div>
