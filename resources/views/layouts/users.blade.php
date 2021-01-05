@@ -45,8 +45,9 @@
                     <span class="form-control-sm text-muted ">{{auth()->user()->mobile}}</span>
                     <a class="m-2 btn" href="{{route('dashboard')}}">{{ __('User Dashboard') }}</a>
                     @hasanyrole('super-admin|admin')
-                        <a class="m-2 btn" href="">{{ __('Orders') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.orders.index')}}">{{ __('Orders') }}</a>
                         <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Users') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Product Manger') }}</a>
                         <a class="m-2 btn" href="">{{ __('Accountants') }}</a>
                         <a class="m-2 btn" href="">{{ __('Discounts') }}</a>
                         <a class="m-2 btn" href="">{{ __('Site Setting') }}</a>
