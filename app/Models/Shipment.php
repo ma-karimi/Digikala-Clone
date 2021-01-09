@@ -13,6 +13,6 @@ class Shipment extends Model
 
     public function order()
     {
-        $this->hasOne(Order::class);
+        return $this->hasOne(Order::class);
     }
 }

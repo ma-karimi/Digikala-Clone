@@ -14,6 +14,6 @@ class Location extends Model
 
     public function user()
     {
-     $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 }

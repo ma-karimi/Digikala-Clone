@@ -9,20 +9,21 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['parent_id', 'title'];
-    #todo: add category self join
+
+    protected $with = ['replies'];
 
     public function products()
     {
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function slider()
     {
-        $this->hasOne(Slider::class);
+        return $this->hasOne(Slider::class);
     }
 
     public function incridible()
     {
-        $this->hasOne(Incridible::class);
+        return $this->hasOne(Incridible::class);
     }
 }

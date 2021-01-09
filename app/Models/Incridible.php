@@ -13,11 +13,11 @@ class Incridible extends Model
 
     public function category()
     {
-        $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function products()
     {
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 }

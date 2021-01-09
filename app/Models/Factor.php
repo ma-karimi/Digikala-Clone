@@ -13,6 +13,6 @@ class Factor extends Model
 
     public function order()
     {
-        $this->hasOne(Order::class);
+        return $this->belongsTo(Order::class);
     }
 }
