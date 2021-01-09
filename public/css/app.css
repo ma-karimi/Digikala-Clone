@@ -10899,3 +10899,7 @@ a.text-dark:focus {
   }
 }
 
+html[dir=rtl] body {
+  text-align: right;
+}
+
