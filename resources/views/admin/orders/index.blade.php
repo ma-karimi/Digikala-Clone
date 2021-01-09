@@ -22,11 +22,11 @@
                                     <span style="border-bottom: 2px solid red">{{__('Sorting')}}</span>
                                         <form action="{{route('admin.orders.index')}}" method="get">
                                             @csrf
-                                            @component('components.sort-list',['value'=>'waiting', 'label'=>'Waiting'])@endcomponent
-                                            @component('components.sort-list',['value'=>'processing', 'label'=>'Processing'])@endcomponent
-                                            @component('components.sort-list',['value'=>'accepted', 'label'=>'Accepted'])@endcomponent
-                                            @component('components.sort-list',['value'=>'posted', 'label'=>'Posted'])@endcomponent
-                                            @component('components.sort-list',['value'=>'delivered', 'label'=>'Delivered'])@endcomponent
+                                            @component('components.sort-list',['route'=>'admin.orders.index','value'=>'waiting', 'label'=>'Waiting'])@endcomponent
+                                            @component('components.sort-list',['route'=>'admin.orders.index','value'=>'processing', 'label'=>'Processing'])@endcomponent
+                                            @component('components.sort-list',['route'=>'admin.orders.index','value'=>'accepted', 'label'=>'Accepted'])@endcomponent
+                                            @component('components.sort-list',['route'=>'admin.orders.index','value'=>'posted', 'label'=>'Posted'])@endcomponent
+                                            @component('components.sort-list',['route'=>'admin.orders.index','value'=>'delivered', 'label'=>'Delivered'])@endcomponent
                                         </form>
                                     </li>
                                 </ul>

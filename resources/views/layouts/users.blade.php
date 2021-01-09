@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,12 +19,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            direction: rtl;
-            text-align: right;
-        }
-    </style>
 </head>
 <body>
 <div id="app">
@@ -39,8 +33,8 @@
     <main class="py-4 col-md-12">
         <div class="d-flex flex-row">
             <div class="container-fluid text-center col-md-2 ">
-                <div class=" sidenav border pt-4 d-flex flex-column">
-                    <img class="d-flex justify-content-center rounded-circle" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">
+                <div class=" sidenav border pt-4 d-flex flex-column align-items-center">
+                    <img class="img-fluid rounded-circle" width="70px" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">
                     <span class="font-weight-bold text-capitalize mt-2">{{auth()->user()->name}}</span>
                     <span class="form-control-sm text-muted ">{{auth()->user()->mobile}}</span>
                     <a class="m-2 btn" href="{{route('dashboard')}}">{{ __('User Dashboard') }}</a>
@@ -74,7 +68,7 @@
                 </div>
                 <div class="d-flex flex-column">
                     <img src="" alt="">
-                    <span class="text-md-center">{{ __('24Hours Support') }}</span>
+                    <span class="text-md-center">{{ __('24 Hours Support') }}</span>
                 </div>
                 <div class="d-flex flex-column">
                     <img src="" alt="">
@@ -82,7 +76,7 @@
                 </div>
                 <div class="d-flex flex-column">
                     <img src="" alt="">
-                    <span class="text-md-center">{{ __('7Days Guarantee') }}</span>
+                    <span class="text-md-center">{{ __('7 Days Guarantee') }}</span>
                 </div>
                 <div class="d-flex flex-column">
                     <img src="" alt="">

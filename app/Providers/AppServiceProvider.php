@@ -6,6 +6,7 @@ use App\Repository\Interfaces\OrderRepositoryInterface;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\Repository\OrderRepository;
 use App\Repository\Repository\UserRepository;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Paginator::useBootstrap();
     }
 }

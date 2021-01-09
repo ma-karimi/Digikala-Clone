@@ -51,7 +51,7 @@
                                     'status'=>$order->status,'order'=>$order,'payment'=>$order->payment])
                                     @endcomponent
                                     <div class="card-body row">
-                                        {{--<!-- Need Foreach -->--}}
+                                        {{--<!-- #todo: need foreach for each product -->--}}
                                         <div class="col-md-4">
                                             <img style="width: 40%" src="https://uupload.ir/files/h23g_richscorer_small.png" alt="">
                                         </div>
