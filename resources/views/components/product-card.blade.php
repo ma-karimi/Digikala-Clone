@@ -12,10 +12,12 @@
         <div class="d-flex flex-row justify-content-around mt-2">
             <form action="{{route('admin.products.destroy',$product)}}" method="Post">
                 @csrf @method('delete')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                <button type="submit" class="btn">
+                    <i class="fas fa-trash"></i>
+                </button>
             </form>
-            <div><a class="btn btn-success" href=""><i class="fas fa-toggle-on"></i></a></div>
-            <div><a class="btn btn-primary" href=""><i class="fas fa-file-edit"></i></a></div>
+            <div><a class="btn" href=""><i class="fas fa-toggle-on"></i></a></div>
+            <div><a class="btn" href=""><i class="fas fa-edit"></i></a></div>
         </div>
     </div>
 </div>

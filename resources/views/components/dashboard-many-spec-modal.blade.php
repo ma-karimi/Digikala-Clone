@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#{{$modal_id}}"><i class="fal fa-edit"></i></button>
+<button type="button" class="btn btn-light" data-toggle="modal" data-target="#{{$modal_id}}"><i class="fas fa-edit"></i></button>
 
 <!-- Modal -->
 <div class="modal fade" id="{{$modal_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -8,7 +8,11 @@
         <div class="modal-content">
 
             <div class="modal-header border-bottom border-danger">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel"> {{$title}} </h4>
             </div>
 

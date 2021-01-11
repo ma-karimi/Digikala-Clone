@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header border-0 d-flex justify-content-between">
                         <span class="text-danger font-weight-bold">{{ __('Products') }}</span>
-                        <a href="{{route('admin.products.create')}}" class="btn btn-light"><i class="fal fa-folder-plus"></i></a>
+                        <a href="{{route('admin.products.create')}}" class="btn"><i style="color: green" class="fas fa-lg fa-plus"></i></a>
                     </div>
 
                     <div class="card-body row d-flex justify-content-start">

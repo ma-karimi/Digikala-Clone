@@ -7,6 +7,7 @@
                 <div class="card">
                     <div class="card-header border-0 d-flex justify-content-between">
                         <span class="text-danger font-weight-bold">{{ __('Add Product') }}</span>
+                        <a href="{{route('admin.products.index')}}" class="btn"><i class="fas fa-chevron-left"></i></a>
                     </div>
 
                     <div class="card-body">
