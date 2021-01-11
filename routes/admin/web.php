@@ -21,5 +21,5 @@ Route::resource('users', UserController::class)->except('create','store','edit')
 Route::resource('orders', OrderController::class)->except('create','store','edit');
 Route::group(['prefix'=>'manage'],function (){
    Route::resource('products', ProductController::class);
-   Route::resource('categories', CategoryController::class);
+   Route::resource('categories', CategoryController::class)->except('show');
 });
