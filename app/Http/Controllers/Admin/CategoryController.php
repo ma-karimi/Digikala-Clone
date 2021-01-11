@@ -5,10 +5,21 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
+use App\Repository\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    private $categoryRepository;
+
+    public function __construct(CategoryRepositoryInterface $categoryRepository)
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(12);
+        $categories = $this->categoryRepository->all();
         return view('admin.manage.categories.index')->withCategories($categories);
     }
 
@@ -27,7 +38,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->categoryRepository->select();
         return view('admin.manage.categories.create')->withCategories($categories);
     }
 
@@ -39,10 +50,10 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        Category::create($request->validated());
+        $validated = $request->validated();
+        $this->categoryRepository->store($validated);
         return redirect()->route('admin.categories.index');
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -52,7 +63,10 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        #todo: write edit later
+        $categories = $this->categoryRepository->select();
+        return view('admin.manage.categories.edit')
+            ->withCategory($category)
+            ->withCategories($categories);
     }
 
     /**
@@ -62,9 +76,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(StoreCategoryRequest $request, Category $category)
     {
-        #todo: write update later
+        return redirect()->route('admin.categories.index');
     }
 
     /**

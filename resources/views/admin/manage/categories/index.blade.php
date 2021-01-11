@@ -18,15 +18,7 @@
                         @foreach($categories as $category)
                             <div class="card col-md-3">
                                 <div class="card-body">
-                                    <div class="d-flex flex-row justify-content-between">
-                                        <h5 class="card-title font-weight-bold">{{$category->title}}</h5>
-                                        <form action="{{route('admin.categories.destroy',$category)}}" method="Post">
-                                            @csrf @method('delete')
-                                            <button type="submit" class="btn">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </div>
+                                    <h5 class="card-title font-weight-bold">{{$category->title}}</h5>
                                     <hr>
                                     @if($category->childrens != null)
                                         @foreach($category->childrens as $children)
@@ -34,7 +26,22 @@
                                                 {{$children->title}}
                                             </div>
                                         @endforeach
+                                    @else
+                                        <div class="card-text mx-1 badge badge-info">
+                                            {{__('Parent Category')}}
+                                        </div>
                                     @endif
+                                    <hr>
+
+                                    <div class="d-flex flex-row justify-content-around">
+                                        <form action="{{route('admin.categories.destroy',$category)}}" method="Post">
+                                            @csrf @method('delete')
+                                            <button type="submit" class="btn">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        <div><a class="btn" href="{{route('admin.categories.edit',$category)}}"><i class="fas fa-edit"></i></a></div>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
