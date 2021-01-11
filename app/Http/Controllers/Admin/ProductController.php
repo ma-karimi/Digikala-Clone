@@ -54,7 +54,13 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+        #todo: multiple image just get last one, resolve
+
+        $validated = $request->validated();
+        $this->productRepository->store($validated, $request);
+
         return redirect()->route('admin.products.index');
+
     }
 
     /**

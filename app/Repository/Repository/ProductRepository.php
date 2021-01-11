@@ -4,7 +4,11 @@
 namespace App\Repository\Repository;
 
 
+use App\Http\Requests\StoreProductRequest;
+use App\Models\Brand;
 use App\Models\Product;
+use App\Repository\Interfaces\BrandRepositoryInterface;
+use App\Repository\Interfaces\ImageRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
 
 class ProductRepository implements ProductRepositoryInterface
@@ -13,10 +17,20 @@ class ProductRepository implements ProductRepositoryInterface
      * @var Product
      */
     private $product;
+    /**
+     * @var ImageRepositoryInterface
+     */
+    private $imageRepository;
+    /**
+     * @var BrandRepositoryInterface
+     */
+    private $brandRepository;
 
-    public function __construct(Product $product)
+    public function __construct(Product $product,ImageRepositoryInterface $imageRepository, BrandRepositoryInterface $brandRepository)
     {
         $this->product = $product;
+        $this->imageRepository = $imageRepository;
+        $this->brandRepository = $brandRepository;
     }
 
     public function all()
@@ -25,31 +39,15 @@ class ProductRepository implements ProductRepositoryInterface
         return $products;
     }
 
-    public function store()
+    public function store($validated, $request)
     {
         #todo: multiple image just get last one, resolve
         #todo: transfer all to repository (image,brand)
-        $validated = $request->validated();
 
-        $pictue_name = Carbon::now()->timestamp . '.' . $validated['images']->getClientOriginalExtension();
-        $request['path'] = $validated['images']->storePubliclyAs('product', $pictue_name);
-
-        $brand = Brand::where('brand', $validated['brand'])->first();
-        if ($brand == null) {
-            $brand = Brand::create($validated);
-            $validated['brand_id'] = $brand->id;
-        }
-        if ($brand != null) {
-            $validated['brand_id'] = $brand->id;
-        }
-
+        $brand = $this->brandRepository->create($validated);
+        $validated['brand_id'] = $brand->id;
         $product = Product::create($validated);
 
-        $product->image()->create([
-            'alt' => $validated['alt'],
-            'path' => $request['path'],
-            'imageable_type' => $request['imageable_type'],
-            'imageable_id' => $request['imageable_id'],
-        ]);
+        $this->imageRepository->create($validated,$request,$product);
     }
 }
