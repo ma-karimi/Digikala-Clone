@@ -50,4 +50,9 @@ class ProductRepository implements ProductRepositoryInterface
 
         $this->imageRepository->create($validated,$request,$product);
     }
+
+    public function destroy($product)
+    {
+        $product->delete();
+    }
 }

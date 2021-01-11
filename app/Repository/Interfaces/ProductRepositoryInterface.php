@@ -11,4 +11,8 @@ interface ProductRepositoryInterface
     public function all();
 
     public function store($validated, $request);
+
+    public function destroy($product);
+
+
 }
