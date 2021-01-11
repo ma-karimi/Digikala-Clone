@@ -52,6 +52,7 @@
                                                 <span class="badge btn-warning">{{ucfirst($role->name)}}</span> <br>
                                             @endforeach
                                         </td>
+                                        <!-- Todo: set active deactive -->
                                         <td>{{$user->status ? __('Active') : __('Deactive') }}</td>
                                         <td>
                                             <a class="btn btn-light" href="{{route('admin.users.show', $user->id)}}"><i class="fal fa-info-square"></i></a>

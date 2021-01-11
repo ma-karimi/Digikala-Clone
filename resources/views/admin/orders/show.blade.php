@@ -16,21 +16,21 @@
                         <div class="d-flex flex-column">
                             <div class="d-flex flex-row">
                                 @component('components.order-detail-div',['class1'=>'','class2'=>'text-muted',
-                                            'class3'=>'font-weight-bold','label'=>'Receiver','value'=>$order->user()])
+                                            'class3'=>'font-weight-bold','label'=>'Receiver','value'=>'Enter later'])
                                 @endcomponent
                                 @component('components.order-detail-div',['class1'=>'mx-5','class2'=>'text-muted',
-                                            'class3'=>'font-weight-bold','label'=>'Mobile','value'=>$order->user()])
+                                            'class3'=>'font-weight-bold','label'=>'Mobile','value'=>'Enter later'])
                                 @endcomponent
                             </div>
                             @component('components.order-detail-div',['class1'=>'d-flex flex-row','class2'=>'text-muted',
-                                            'class3'=>'font-weight-bold','label'=>'Address','value'=>$order->user()])
+                                            'class3'=>'font-weight-bold','label'=>'Address','value'=>'Enter later'])
                             @endcomponent
                         </div>
                         <hr>
                         <div class="d-flex flex-column">
                             <div class="d-flex flex-row justify-content-between">
                                 @component('components.order-detail-div',['class1'=>'','class2'=>'text-muted',
-                                'class3'=>'font-weight-bold','label'=>'Total Price','value'=>$order->user()])
+                                'class3'=>'font-weight-bold','label'=>'Total Price','value'=>'Enter later'])
                                 @endcomponent
                                 <a class="btn btn-light" data-toggle="collapse" href="#payment" role="button" aria-expanded="false" aria-controls="collapseExample">{{__('Payment')}}</a>
                             </div>

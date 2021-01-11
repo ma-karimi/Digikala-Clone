@@ -20,4 +20,9 @@ class Rate extends Model
     {
         return $this->hasOne(Product::class);
     }
+
+    public function setRateAttribute($value)
+    {
+        #todo: rate average mutators
+    }
 }
