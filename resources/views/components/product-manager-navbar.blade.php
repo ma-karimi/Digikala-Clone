@@ -10,7 +10,7 @@
                 <a class="nav-link" href="{{route('admin.products.index')}}">{{__('Product')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{__('Categories')}}</a>
+                <a class="nav-link" href="{{route('admin.categories.index')}}">{{__('Categories')}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">{{__('Details')}}</a>

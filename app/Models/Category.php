@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
     protected $fillable = ['parent_id', 'title'];
 
-    protected $with = ['replies'];
+    protected $with = ['childrens'];
 
     public function products()
     {
@@ -25,5 +26,10 @@ class Category extends Model
     public function incridible()
     {
         return $this->hasOne(Incridible::class);
+    }
+
+    public function childrens()
+    {
+        return $this->hasMany(Category::class, 'parent_id')->distinct('parent_id');
     }
 }
