@@ -41,9 +41,6 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function store($validated, $request)
     {
-        #todo: multiple image just get last one, resolve
-        #todo: transfer all to repository (image,brand)
-
         $brand = $this->brandRepository->create($validated);
         $validated['brand_id'] = $brand->id;
         $product = Product::create($validated);

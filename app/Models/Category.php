@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $fillable = ['parent_id', 'title'];
 
-    protected $with = ['childrens'];
+//    protected $with = ['childrens']; #todo: error 256 if uncomment it
 
     public function products()
     {

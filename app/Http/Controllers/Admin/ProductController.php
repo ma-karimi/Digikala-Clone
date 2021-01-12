@@ -4,13 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
-use App\Models\Brand;
-use App\Models\Image;
+use App\Models\Category;
 use App\Models\Product;
 use App\Repository\Interfaces\ProductRepositoryInterface;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -43,7 +40,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.manage.products.create');
+        $categories = Category::all();
+        return view('admin.manage.products.create')
+            ->withCategories($categories);
     }
 
     /**

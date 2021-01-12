@@ -20,105 +20,87 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Title') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="title" type="text" name="title" class="form-control" autofocus>
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'title','type'=>'text','title'=>'Title'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="en-title" class="col-md-2 col-form-label text-md-right">{{ __('English Title') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="en-title" type="text" name="en-title" class="form-control" >
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'en-title','type'=>'text','title'=>'English Title'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="slug" class="col-md-2 col-form-label text-md-right">{{ __('Slug') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="slug" type="text" name="slug" class="form-control" >
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'slug','type'=>'text','title'=>'Slug'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="price" class="col-md-2 col-form-label text-md-right">{{ __('Price') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="price" type="number" name="price" class="form-control" >
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'price','type'=>'number','title'=>'Price'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="quantity" class="col-md-2 col-form-label text-md-right">{{ __('Quantity') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="quantity" type="number" name="quantity" class="form-control" >
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'quantity','type'=>'number','title'=>'Quantity'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="brand" class="col-md-2 col-form-label text-md-right">{{ __('Brand') }}</label>
-                                    <!-- Todo: create brand or select from search -->
-                                    <!-- Todo: js accept create new -->
-                                    <div class="col-md-6">
-                                        <input id="brand" type="text" name="brand" class="form-control" >
-                                    </div>
-                                    <button type="submit" class="btn btn-light">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
+                                    @component('components.create-form-input',['name'=>'brand','type'=>'text','title'=>'Brand'])
+                                    @endcomponent
+                                        <!-- Todo: search if a brand is not exist create after submit -->
+                                        <button type="submit" class="btn btn-light">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="category" class="col-md-2 col-form-label text-md-right">{{ __('Category') }}</label>
-                                    <!-- Todo: create category or select from search -->
-                                    <!-- Todo: js accept create new -->
+
                                     <div class="col-md-6">
-                                        <input id="category" type="text" name="category" class="form-control" >
+                                        <select class="form-control" name="category" id="parent">
+                                            <option value="">{{__('None')}}</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <button type="submit" class="btn btn-light">
+                                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#catCreator">
                                         <i class="fas fa-plus"></i>
                                     </button>
+                                    <!-- Todo: foreach error -->
+                                    @component('components.create-category-modal',['modal_id'=>'catCreator','title'=>'Create New Category',
+                                    'categories'=>$categories,'category'=>'$category','catId'=>'$category->id','catTitle'=>'$category->title'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="image" class="col-md-2 col-form-label text-md-right">{{ __('Image') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="image" type="file" name="images" multiple class="form-control">
-                                    </div>
+                                    @component('components.create-form-input',['name'=>'image','type'=>'file','title'=>'Image'])
+                                    @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="alt" class="col-md-2 col-form-label text-md-right">{{ __('Alt') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="alt" type="text" name="alt" multiple class="form-control">
+                                    @component('components.create-form-input',['name'=>'alt','type'=>'text','title'=>'Alt'])
+                                    @endcomponent
                                         <input id="alt" type="hidden" name="imageable_type" value="App\Models\Product">
                                         <input id="alt" type="hidden" name="imageable_id" value="$product->id">
-                                    </div>
+
                                 </div>
 
                                 <div class=" d-flex flex-column">
                                     <div class="form-group row">
-                                        <label for="detail" class="col-md-2 col-form-label text-md-right">{{ __('Detail') }}</label>
-
-                                        <div class="col-md-6">
-                                            <input id="detail" type="text" name="detail" class="form-control" aria-describedby="detailHelp" >
-                                            <div id="detailHelp" class="form-text text-danger">*Enter your Title and click to add. </div>
-                                        </div>
+                                        @component('components.create-form-input',['name'=>'detail','type'=>'text','title'=>'Detail'])
+                                        @endcomponent
+                                        <!-- Todo: add detail ajax in this form-->
                                         <button type="submit" class="btn btn-light" onclick="myFunction()">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
-                                    <div id="details" class="d-flex flex-column"> </div>
+                                    <div id="details" class="d-flex flex-column"></div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="review" class="col-md-2 col-form-label text-md-right">{{ __('Review') }}</label>
-                                    <!-- Todo: add review in product table-->
+
                                     <div class="col-md-6">
                                         <textarea class="form-control"  name="review" id="review" cols="180" rows="3"></textarea>
                                     </div>

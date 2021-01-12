@@ -28,7 +28,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="title" class="col-md-2 col-form-label text-md-right">{{ __('Parent') }}</label>
+                                    <label for="parent" class="col-md-2 col-form-label text-md-right">{{ __('Parent') }}</label>
 
                                     <div class="col-md-6">
                                         <select class="form-control" name="parent_id" id="parent">
