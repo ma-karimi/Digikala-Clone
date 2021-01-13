@@ -78,6 +78,8 @@ class CategoryController extends Controller
      */
     public function update(StoreCategoryRequest $request, Category $category)
     {
+        $validated = $request->validated();
+        $this->categoryRepository->update($category,$validated);
         return redirect()->route('admin.categories.index');
     }
 

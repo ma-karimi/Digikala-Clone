@@ -9,4 +9,6 @@ interface ImageRepositoryInterface
     public function create($validated,$request,$product);
 
     public function update($validated,$request,$product);
+
+    public function delete($product);
 }

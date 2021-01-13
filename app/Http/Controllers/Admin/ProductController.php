@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {

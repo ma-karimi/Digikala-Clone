@@ -29,6 +29,6 @@ class CategoryRepository implements CategoryRepositoryInterface
 
     public function update($category,$validated)
     {
-        $category->update($validated);
+        Category::find($category->id)->update($validated);
     }
 }

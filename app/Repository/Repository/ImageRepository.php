@@ -6,6 +6,7 @@ namespace App\Repository\Repository;
 
 use App\Repository\Interfaces\ImageRepositoryInterface;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ImageRepository implements ImageRepositoryInterface
 {
@@ -34,5 +35,10 @@ class ImageRepository implements ImageRepositoryInterface
             'imageable_type' => $request['imageable_type'],
             'imageable_id' => $request['imageable_id'],
         ]);
+    }
+
+    public function delete($product)
+    {
+        Storage::delete($product->image->path);
     }
 }

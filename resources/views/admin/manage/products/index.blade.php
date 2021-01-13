@@ -1,5 +1,5 @@
 @extends('layouts.users')
-
+<!-- Todo: add search box by category,brand in right menu -->
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

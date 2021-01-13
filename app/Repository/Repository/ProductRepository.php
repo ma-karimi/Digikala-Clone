@@ -50,6 +50,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function destroy($product)
     {
+        $this->imageRepository->delete($product);
         $product->delete();
     }
 
