@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -16,10 +18,15 @@ class ProductController extends Controller
      * @var ProductRepositoryInterface
      */
     private $productRepository;
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    private $categoryRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
+    public function __construct(ProductRepositoryInterface $productRepository, CategoryRepositoryInterface $categoryRepository)
     {
         $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -40,7 +47,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->categoryRepository->select();
         return view('admin.manage.products.create')
             ->withCategories($categories);
     }
@@ -81,7 +88,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = $this->categoryRepository->select();
+        return view('admin.manage.products.edit')
+            ->withCategories($categories)
+            ->withProduct($product);
     }
 
     /**
@@ -91,9 +101,12 @@ class ProductController extends Controller
      * @param \App\Models\Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $validated = $request->validated();
+        $this->productRepository->update($validated, $request, $product);
+
+        return redirect()->route('admin.products.index');
     }
 
     /**

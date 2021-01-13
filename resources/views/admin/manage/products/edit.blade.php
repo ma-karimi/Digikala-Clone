@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header border-0 d-flex justify-content-between">
-                        <span class="text-danger font-weight-bold">{{ __('Add Product') }}</span>
+                        <span class="text-danger font-weight-bold">{{ __('Edit Product') }}</span>
                         <a href="{{route('admin.products.index')}}" class="btn"><i class="fas fa-chevron-left"></i></a>
                     </div>
 
@@ -16,36 +16,36 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                            <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
-                                @csrf
+                            <form method="POST" action="{{ route('admin.products.update',$product) }}" enctype="multipart/form-data">
+                                @csrf @method('put')
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'title','type'=>'text','title'=>'Title'])
+                                    @component('components.edit-form-input',['name'=>'title','type'=>'text','title'=>'Title','value'=>$product->title])
                                     @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'en_title','type'=>'text','title'=>'English Title'])
+                                    @component('components.edit-form-input',['name'=>'en_title','type'=>'text','title'=>'English Title','value'=>$product->en_title])
                                     @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'slug','type'=>'text','title'=>'Slug'])
+                                    @component('components.edit-form-input',['name'=>'slug','type'=>'text','title'=>'Slug','value'=>$product->slug])
                                     @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'price','type'=>'number','title'=>'Price'])
+                                    @component('components.edit-form-input',['name'=>'price','type'=>'number','title'=>'Price','value'=>$product->price])
                                     @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'quantity','type'=>'number','title'=>'Quantity'])
+                                    @component('components.edit-form-input',['name'=>'quantity','type'=>'number','title'=>'Quantity','value'=>$product->quantity])
                                     @endcomponent
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'brand','type'=>'text','title'=>'Brand'])
+                                    @component('components.create-form-input',['name'=>'brand','type'=>'text','title'=>'Brand','value'=>''])
                                     @endcomponent
                                         <!-- Todo: search if a brand is not exist create after submit -->
                                         <button type="button" class="btn btn-light">
@@ -74,22 +74,22 @@
 
                                 <div class="form-group row">
                                     <label for="images" class="col-md-2 col-form-label text-md-right">{{ __('Images') }}</label>
+
                                     <div class="col-md-6">
                                         <input type="file" name="images" multiple >
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'alt','type'=>'text','title'=>'Alt'])
+                                    @component('components.edit-form-input',['name'=>'alt','type'=>'text','title'=>'Alt','value'=>$product->image->alt])
                                     @endcomponent
                                         <input id="alt" type="hidden" name="imageable_type" value="App\Models\Product">
                                         <input id="alt" type="hidden" name="imageable_id" value="$product->id">
-
                                 </div>
 
                                 <div class=" d-flex flex-column">
                                     <div class="form-group row">
-                                        @component('components.create-form-input',['name'=>'detail','type'=>'text','title'=>'Detail'])
+                                        @component('components.edit-form-input',['name'=>'detail','type'=>'text','title'=>'Detail','value'=>$product->detail])
                                         @endcomponent
                                         <!-- Todo: add detail ajax in this form-->
                                         <button type="button" class="btn btn-light" onclick="myFunction()">
@@ -108,9 +108,9 @@
                                 </div>
 
                                 <div class="form-group row mb-0">
-                                    <div class="col-md-2 offset-md-2">
+                                    <div class="col-md-3 offset-md-2">
                                         <button type="submit" class="btn btn-success">
-                                            {{ __('+ Add Product') }}
+                                            {{ __('+ Update Product') }}
                                         </button>
                                     </div>
                                 </div>

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class UpdateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,16 +23,15 @@ class StoreProductRequest extends FormRequest
      */
     public function rules()
     {
-        #todo : detail should validate json type
         return [
             'title' => ['required', 'string', 'max:255'],
             'en_title' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255'],
             'price' => ['required','numeric'],
             'quantity' => ['required','numeric'],
-            'brand' => ['required', 'string', 'max:255'],
+            'brand' => ['sometimes', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
-            'images' => ['required','image'],
+            'images' => ['sometimes','image'],
             'alt' => ['required', 'string', 'max:255'],
             'detail' => ['required',],
             'review' => ['required', 'string'],

@@ -12,6 +12,8 @@ interface ProductRepositoryInterface
 
     public function store($validated, $request);
 
+    public function update($validated, $request, $product);
+
     public function destroy($product);
 
 

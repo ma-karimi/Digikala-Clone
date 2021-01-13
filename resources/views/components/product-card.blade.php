@@ -21,7 +21,7 @@
                 </button>
             </form>
             <div><a class="btn" href=""><i class="fas fa-toggle-on"></i></a></div>
-            <div><a class="btn" href=""><i class="fas fa-edit"></i></a></div>
+            <div><a class="btn" href="{{route('admin.products.edit',$product)}}"><i class="fas fa-edit"></i></a></div>
         </div>
     </div>
 </div>

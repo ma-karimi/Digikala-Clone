@@ -22,4 +22,17 @@ class ImageRepository implements ImageRepositoryInterface
             'imageable_id' => $request['imageable_id'],
         ]);
     }
+
+    public function update($validated, $request, $product)
+    {
+        $pictue_name = Carbon::now()->timestamp . '.' . $validated['images']->getClientOriginalExtension();
+        $request['path'] = $validated['images']->storePubliclyAs('product', $pictue_name);
+
+        $product->image->update([
+            'alt' => $validated['alt'],
+            'path' => $request['path'],
+            'imageable_type' => $request['imageable_type'],
+            'imageable_id' => $request['imageable_id'],
+        ]);
+    }
 }

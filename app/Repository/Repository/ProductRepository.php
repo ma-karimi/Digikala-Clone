@@ -52,4 +52,13 @@ class ProductRepository implements ProductRepositoryInterface
     {
         $product->delete();
     }
+
+    public function update($validated, $request, $product)
+    {
+        $brand = $this->brandRepository->create($validated);
+        $validated['brand_id'] = $brand->id;
+        Product::find($product->id)->update($validated);
+
+        $this->imageRepository->update($validated,$request,$product);
+    }
 }
