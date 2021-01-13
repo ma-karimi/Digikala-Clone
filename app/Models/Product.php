@@ -51,4 +51,11 @@ class Product extends Model
     {
         return $this->belongsToMany(Incridible::class);
     }
+
+    public function getAverageAttribute()
+    {
+        $avarage = $this->rates()->average('rate');
+        return $avarage;
+        #todo: test it with $product->average()
+    }
 }

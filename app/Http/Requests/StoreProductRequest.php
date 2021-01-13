@@ -23,19 +23,19 @@ class StoreProductRequest extends FormRequest
      */
     public function rules()
     {
-        #todo : detail should validate json type?
+        #todo : detail should validate json type
         return [
             'title' => ['required', 'string', 'max:255'],
             'en-title' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255'],
-            'brand' => ['required', 'string', 'max:255'],
-            'category' => ['required', 'string', 'max:255'],
-            'detail' => ['required',],
             'price' => ['required','numeric'],
             'quantity' => ['required','numeric'],
-            'review' => ['required', 'string'],
+            'brand' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
             'images' => ['required','image'],
             'alt' => ['required', 'string', 'max:255'],
+            'detail' => ['required',],
+            'review' => ['required', 'string'],
         ];
     }
 }

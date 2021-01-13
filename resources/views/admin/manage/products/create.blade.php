@@ -48,7 +48,7 @@
                                     @component('components.create-form-input',['name'=>'brand','type'=>'text','title'=>'Brand'])
                                     @endcomponent
                                         <!-- Todo: search if a brand is not exist create after submit -->
-                                        <button type="submit" class="btn btn-light">
+                                        <button type="button" class="btn btn-light">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                 </div>
@@ -67,15 +67,16 @@
                                     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#catCreator">
                                         <i class="fas fa-plus"></i>
                                     </button>
-                                    <!-- Todo: foreach error -->
-                                    @component('components.create-category-modal',['modal_id'=>'catCreator','title'=>'Create New Category',
-                                    'categories'=>$categories,'category'=>'$category','catId'=>'$category->id','catTitle'=>'$category->title'])
-                                    @endcomponent
+                                    <!-- Todo: solve with ajax-->
+{{--                                    @component('components.create-category-modal',['modal_id'=>'catCreator','title'=>'Create New Category',--}}
+{{--                                    'categories'=>$categories,'category'=>$category])--}}
+{{--                                    @endcomponent--}}
                                 </div>
 
                                 <div class="form-group row">
-                                    @component('components.create-form-input',['name'=>'image','type'=>'file','title'=>'Image'])
-                                    @endcomponent
+                                    <div class="col-md-6">
+                                        <input type="file" name="images" multiple >
+                                    </div>
                                 </div>
 
                                 <div class="form-group row">
@@ -91,7 +92,7 @@
                                         @component('components.create-form-input',['name'=>'detail','type'=>'text','title'=>'Detail'])
                                         @endcomponent
                                         <!-- Todo: add detail ajax in this form-->
-                                        <button type="submit" class="btn btn-light" onclick="myFunction()">
+                                        <button type="button" class="btn btn-light" onclick="myFunction()">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>

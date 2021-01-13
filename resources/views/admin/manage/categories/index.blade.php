@@ -20,16 +20,24 @@
                                 <div class="card-body">
                                     <h5 class="card-title font-weight-bold">{{$category->title}}</h5>
                                     <hr>
-                                    @if($category->childrens != null)
-                                        @foreach($category->childrens as $children)
+                                    @if($category->parent_id != null)
+                                        <div class="card-text mx-1 badge badge-info">
+                                            {{__('Child Category')}}
+                                        </div>
+                                        @foreach($category->children as $child)
                                             <div class="card-text mx-1 badge badge-info">
-                                                {{$children->title}}
+                                                {{$child->title}}
                                             </div>
                                         @endforeach
                                     @else
                                         <div class="card-text mx-1 badge badge-info">
                                             {{__('Parent Category')}}
                                         </div>
+                                        @foreach($category->children as $child)
+                                            <div class="card-text mx-1 badge badge-info">
+                                                {{$child->title}}
+                                            </div>
+                                        @endforeach
                                     @endif
                                     <hr>
 

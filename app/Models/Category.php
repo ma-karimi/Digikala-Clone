@@ -11,7 +11,7 @@ class Category extends Model
 
     protected $fillable = ['parent_id', 'title'];
 
-//    protected $with = ['childrens']; #todo: error 256 if uncomment it
+    protected $with = ['children'];
 
     public function products()
     {
@@ -28,7 +28,7 @@ class Category extends Model
         return $this->hasOne(Incridible::class);
     }
 
-    public function childrens()
+    public function children()
     {
         return $this->hasMany(Category::class, 'parent_id')->distinct('parent_id');
     }

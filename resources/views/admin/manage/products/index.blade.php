@@ -18,12 +18,13 @@
                         @foreach($products as $product)
                             <!-- Todo: how to use foreach in component -->
                             <!-- Todo: how to use translate method in component -->
-                            @component('components.product-card',['path'=>'https://uupload.ir/files/h23g_richscorer_small.png','alt'=>'alt','title'=>$product->title,'rate'=>4,'quantity'=>$product->quantity? 'available' : 'not available','product'=>$product])@endcomponent
+                            @component('components.product-card',['path'=>$product->image->path,'alt'=>$product->image->alt,'title'=>$product->title,
+                            'rate'=>$product->average,'quantity'=>$product->quantity,'product'=>$product,'price'=>$product->price])@endcomponent
                         @endforeach
                     </div>
 
                     <div class="row justify-content-center">
-{{--                        {{ $products->links() }}--}}
+                        {{ $products->links() }}
                     </div>
                 </div>
             </div>

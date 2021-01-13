@@ -25,7 +25,7 @@
                         <select class="form-control" name="parent_id" id="parent">
                             <option value="">{{__('None')}}</option>
                             @foreach($categories as $category)
-                                <option value="{{$catId}}">{{$catTitle}}</option>
+                                <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -35,7 +35,7 @@
 
             <div class="modal-footer border-0">
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
-                <form method="POST" action="{{route('admin.categories.store')}}">
+                <form method="POST" action="#">
                     @csrf
                     <!-- #todo: route missed -->
                     <button type="submit" class="btn btn-success">{{__('Create New')}}</button>

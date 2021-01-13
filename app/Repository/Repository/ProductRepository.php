@@ -35,7 +35,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function all()
     {
-        $products = Product::with('categories','image','rates')->get();
+        $products = Product::with('categories','image','rates')->paginate(12);
         return $products;
     }
 
