@@ -16,7 +16,7 @@
                 <a class="nav-link" href="#">{{__('Details')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{__('Comments')}}</a>
+                <a class="nav-link" href="{{route('admin.comments.index')}}">{{__('Comments')}}</a>
             </li>
         </ul>
     </div>

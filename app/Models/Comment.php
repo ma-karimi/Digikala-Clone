@@ -8,27 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
-    protected $with = ['replies'];
 
     protected $fillable = ['user_id', 'product_id', 'text', 'date', 'status'];
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class,'id');
     }
 
     public function product()
     {
-        return $this->hasOne(Product::class);
+        return $this->hasOne(Product::class,'id','product_id');
     }
 
     public function likes()
     {
         return $this->hasMany(Like::class, 'comment_id');
-    }
-
-    public function replies()
-    {
-        return $this->hasMany(self::class, 'parent_id')->distinct();
     }
 }

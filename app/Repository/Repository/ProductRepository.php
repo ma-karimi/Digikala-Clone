@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Repository\Interfaces\BrandRepositoryInterface;
+use App\Repository\Interfaces\CommentRepositoryInterface;
 use App\Repository\Interfaces\ImageRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
 
@@ -25,12 +26,18 @@ class ProductRepository implements ProductRepositoryInterface
      * @var BrandRepositoryInterface
      */
     private $brandRepository;
+    /**
+     * @var CommentRepositoryInterface
+     */
+    private $commentRepository;
 
-    public function __construct(Product $product,ImageRepositoryInterface $imageRepository, BrandRepositoryInterface $brandRepository)
+    public function __construct(Product $product,ImageRepositoryInterface $imageRepository,
+                                BrandRepositoryInterface $brandRepository,CommentRepositoryInterface $commentRepository)
     {
         $this->product = $product;
         $this->imageRepository = $imageRepository;
         $this->brandRepository = $brandRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     public function all()
@@ -50,6 +57,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function destroy($product)
     {
+        $this->commentRepository->delete_all($product->comments);
         $this->imageRepository->delete($product);
         $product->delete();
     }
