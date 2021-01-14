@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SpecificationController;
 use App\Http\Controllers\Admin\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +26,6 @@ Route::group(['prefix'=>'manage'],function (){
    Route::resource('products', ProductController::class); #todo:show method write later
    Route::resource('categories', CategoryController::class)->except('show');
    Route::resource('comments', CommentController::class)->only('index','destroy');
+   Route::resource('specifications', SpecificationController::class)->except('show');
    Route::get('comments.status',[CommentController::class,'status'])->name('comments.status');
 });

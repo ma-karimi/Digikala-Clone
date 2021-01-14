@@ -15,7 +15,8 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
-            $table->string('value');
+            $table->string('title');
+            $table->char('value')->nullable();
             $table->foreignId('specification_id');
             $table->foreign('specification_id')
                 ->references('id')

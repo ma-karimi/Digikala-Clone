@@ -9,10 +9,10 @@ class Detail extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['value' , 'specification_id'];
+    protected $fillable = ['title' ,'value', 'specification_id'];
 
     public function specification()
     {
-        return $this->belongsTo(Specification::class,'specification_id');
+        return $this->hasOne(Specification::class,'specification_id');
     }
 }

@@ -7,13 +7,13 @@
         <ul class="navbar-nav">
             <!-- Todo: set current => if(RequestAlias::path() == 'admin/manage/products')active endif-->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.products.index')}}">{{__('Product')}}</a>
+                <a class="nav-link" href="{{route('admin.products.index')}}">{{__('Products')}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.categories.index')}}">{{__('Categories')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{__('Details')}}</a>
+                <a class="nav-link" href="{{route('admin.specifications.index')}}">{{__('Specifications')}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.comments.index')}}">{{__('Comments')}}</a>
