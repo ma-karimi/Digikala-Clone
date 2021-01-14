@@ -10,4 +10,9 @@ class Specification extends Model
     use HasFactory;
 
     protected $fillable = ['title'];
+
+    public function details()
+    {
+        return $this->hasMany(Detail::class);
+    }
 }
