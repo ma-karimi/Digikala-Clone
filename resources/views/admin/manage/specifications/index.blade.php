@@ -10,7 +10,7 @@
 
                 <div class="card">
                     <div class="card-header border-0 d-flex justify-content-between">
-                        <span class="text-danger font-weight-bold">{{ __('Categories') }}</span>
+                        <span class="text-danger font-weight-bold">{{ __('Specification') }}</span>
                         <a href="{{route('admin.specifications.create')}}" class="btn"><i style="color: green" class="fas fa-lg fa-plus"></i></a>
                     </div>
 

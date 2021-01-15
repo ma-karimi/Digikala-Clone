@@ -26,6 +26,6 @@ Route::group(['prefix'=>'manage'],function (){
    Route::resource('products', ProductController::class); #todo:show method write later
    Route::resource('categories', CategoryController::class)->except('show');
    Route::resource('comments', CommentController::class)->only('index','destroy');
-   Route::resource('specifications', SpecificationController::class)->except('show');
-   Route::get('comments.status',[CommentController::class,'status'])->name('comments.status');
+    Route::get('comments.status',[CommentController::class,'status'])->name('comments.status');
+    Route::resource('specifications', SpecificationController::class)->except('show');
 });

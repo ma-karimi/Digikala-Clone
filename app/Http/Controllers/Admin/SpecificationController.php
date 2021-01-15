@@ -74,7 +74,8 @@ class SpecificationController extends Controller
      */
     public function edit(Specification $specification)
     {
-        //
+        return view('admin.manage.specifications.edit')
+            ->withSpecification($specification);
     }
 
     /**
@@ -84,9 +85,11 @@ class SpecificationController extends Controller
      * @param  \App\Models\Specification  $specification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Specification $specification)
+    public function update(StoreSpecificationRequest $request, Specification $specification)
     {
-        //
+        $validated = $request->validated();
+        $this->specificationRepository->update($validated, $specification);
+        return redirect()->route('admin.specifications.index');
     }
 
     /**

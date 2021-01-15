@@ -10,9 +10,7 @@ interface SpecificationRepositoryInterface
 
     public function store($validated);
 
-    public function edit();
-
-    public function update();
+    public function update($validated, $specification);
 
     public function delete($specification);
 }

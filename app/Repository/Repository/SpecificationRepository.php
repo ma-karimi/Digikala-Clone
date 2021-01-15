@@ -21,14 +21,9 @@ class SpecificationRepository implements SpecificationRepositoryInterface
         Specification::create($validated);
     }
 
-    public function edit()
+    public function update($validated, $specification)
     {
-        // TODO: Implement edit() method.
-    }
-
-    public function update()
-    {
-        // TODO: Implement update() method.
+        $specification->update($validated);
     }
 
     public function delete($specification)
