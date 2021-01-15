@@ -8,7 +8,7 @@ interface SpecificationRepositoryInterface
 {
     public function all();
 
-    public function store();
+    public function store($validated);
 
     public function edit();
 

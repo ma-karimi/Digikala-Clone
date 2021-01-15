@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSpecificationRequest;
 use App\Models\Specification;
 use App\Repository\Interfaces\SpecificationRepositoryInterface;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class SpecificationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.manage.specifications.create');
     }
 
     /**
@@ -47,9 +48,11 @@ class SpecificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSpecificationRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $this->specificationRepository->store($validated);
+        return redirect()->route('admin.specifications.index');
     }
 
     /**

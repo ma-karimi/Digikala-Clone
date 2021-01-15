@@ -16,9 +16,9 @@ class SpecificationRepository implements SpecificationRepositoryInterface
         return $specifications;
     }
 
-    public function store()
+    public function store($validated)
     {
-        // TODO: Implement store() method.
+        Specification::create($validated);
     }
 
     public function edit()
