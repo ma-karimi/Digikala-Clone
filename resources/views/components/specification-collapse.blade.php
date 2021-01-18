@@ -20,15 +20,14 @@
     <div id="collapse{{$index}}" class="collapse show" aria-labelledby="heading{{$index}}" data-parent="#accordion">
         <div class="card-body">
             <div class="d-flex flex-row">
-                <div class="d-flex flex-row col-md-10">
+                <div class="d-flex flex-row col-md-11">
                     <p>{{__('Details')}}:</p>
                     @foreach($specification->details as $detail)
-                        <span style="color: {{$detail->value}}" class="badge mx-2 border-right">{{$detail->title}}</span>
+                        <span class="badge mx-2 border-right"><a style="color: {{$detail->value}}" href="{{route('admin.details.edit',$detail)}}">{{$detail->title}}</a></span>
                     @endforeach
                 </div>
-                <p class="col-md-2 mx-5">
-                    <i class="mx-1 fas fa-lg fa-plus"></i>
-                    <i class="mx-1 fas fa-lg fa-trash"></i>
+                <p class="col-md-1">
+                    <a class="btn" href="{{route('admin.details.create',['specification'=> $specification->title,'specification_id'=>$specification])}}"><i class="mx-1 fas fa-lg fa-plus"></i></a>
                 </p>
             </div>
         </div>

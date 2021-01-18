@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Repository\Interfaces\BrandRepositoryInterface;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\CommentRepositoryInterface;
+use App\Repository\Interfaces\DetailRepositoryInterface;
 use App\Repository\Interfaces\ImageRepositoryInterface;
 use App\Repository\Interfaces\OrderRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
@@ -13,6 +14,7 @@ use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\Repository\BrandRepository;
 use App\Repository\Repository\CategoryRepository;
 use App\Repository\Repository\CommentRepository;
+use App\Repository\Repository\DetailRepository;
 use App\Repository\Repository\ImageRepository;
 use App\Repository\Repository\OrderRepository;
 use App\Repository\Repository\ProductRepository;
@@ -38,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CategoryRepositoryInterface::class,CategoryRepository::class);
         $this->app->bind(CommentRepositoryInterface::class,CommentRepository::class);
         $this->app->bind(SpecificationRepositoryInterface::class,SpecificationRepository::class);
+        $this->app->bind(DetailRepositoryInterface::class,DetailRepository::class);
     }
 
     /**

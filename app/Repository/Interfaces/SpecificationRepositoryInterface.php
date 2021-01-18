@@ -8,6 +8,8 @@ interface SpecificationRepositoryInterface
 {
     public function all();
 
+    public function select($specification);
+
     public function store($validated);
 
     public function update($validated, $specification);

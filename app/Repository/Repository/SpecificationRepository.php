@@ -30,4 +30,10 @@ class SpecificationRepository implements SpecificationRepositoryInterface
     {
         $specification->delete();
     }
+
+    public function select($specification)
+    {
+        $specification = Specification::where('title',$specification)->get();
+        return $specification;
+    }
 }
