@@ -27,8 +27,8 @@
                                     <form action="{{route('admin.users.index')}}" method="get">
                                         @csrf
                                         @component('components.sort-list',['route'=>'admin.users.index','value'=>'all', 'label'=>'All'])@endcomponent
-                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'1', 'label'=>'Active'])@endcomponent
-                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'0', 'label'=>'Deactive'])@endcomponent
+                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'active', 'label'=>'Active'])@endcomponent
+                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'deactive', 'label'=>'Deactive'])@endcomponent
                                     </form>
                                     </li>
                                 </ul>

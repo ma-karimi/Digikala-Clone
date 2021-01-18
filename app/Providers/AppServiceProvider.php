@@ -7,6 +7,7 @@ use App\Repository\Interfaces\BrandRepositoryInterface;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\CommentRepositoryInterface;
 use App\Repository\Interfaces\DetailRepositoryInterface;
+use App\Repository\Interfaces\DiscountRepositoryInterface;
 use App\Repository\Interfaces\ImageRepositoryInterface;
 use App\Repository\Interfaces\OrderRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
@@ -17,6 +18,7 @@ use App\Repository\Repository\BrandRepository;
 use App\Repository\Repository\CategoryRepository;
 use App\Repository\Repository\CommentRepository;
 use App\Repository\Repository\DetailRepository;
+use App\Repository\Repository\DiscountRepository;
 use App\Repository\Repository\ImageRepository;
 use App\Repository\Repository\OrderRepository;
 use App\Repository\Repository\ProductRepository;
@@ -44,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SpecificationRepositoryInterface::class,SpecificationRepository::class);
         $this->app->bind(DetailRepositoryInterface::class,DetailRepository::class);
         $this->app->bind(AccountantRepositoryInterface::class,AccountantRepository::class);
+        $this->app->bind(DiscountRepositoryInterface::class,DiscountRepository::class);
     }
 
     /**

@@ -3,11 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDiscountRequest;
 use App\Models\Discount;
+use App\Repository\Interfaces\DiscountRepositoryInterface;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
 {
+    /**
+     * @var DiscountRepositoryInterface
+     */
+    private $discountRepository;
+
+    public function __construct(DiscountRepositoryInterface $discountRepository)
+    {
+        $this->discountRepository = $discountRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,7 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        $discounts = Discount::all();
+        $discounts = $this->discountRepository->all();
         return view('admin.discounts.index')
             ->withDiscounts($discounts);
     }
@@ -27,7 +39,7 @@ class DiscountController extends Controller
      */
     public function create()
     {
-        dd('create');
+        return view('admin.discounts.create');
     }
 
     /**
@@ -36,9 +48,11 @@ class DiscountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDiscountRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $this->discountRepository->store($validated);
+        return redirect()->route('admin.discounts.index');
     }
 
     /**
