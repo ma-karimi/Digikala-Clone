@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repository\Interfaces\AccountantRepositoryInterface;
 use App\Repository\Interfaces\BrandRepositoryInterface;
 use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\CommentRepositoryInterface;
@@ -11,6 +12,7 @@ use App\Repository\Interfaces\OrderRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
 use App\Repository\Interfaces\SpecificationRepositoryInterface;
 use App\Repository\Interfaces\UserRepositoryInterface;
+use App\Repository\Repository\AccountantRepository;
 use App\Repository\Repository\BrandRepository;
 use App\Repository\Repository\CategoryRepository;
 use App\Repository\Repository\CommentRepository;
@@ -41,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(CommentRepositoryInterface::class,CommentRepository::class);
         $this->app->bind(SpecificationRepositoryInterface::class,SpecificationRepository::class);
         $this->app->bind(DetailRepositoryInterface::class,DetailRepository::class);
+        $this->app->bind(AccountantRepositoryInterface::class,AccountantRepository::class);
     }
 
     /**

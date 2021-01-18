@@ -28,7 +28,6 @@ class CreateProductsTable extends Migration
                 ->cascadeOnDelete();
             $table->enum('status',['draft', 'waiting', 'published', 'denied', 'unavailable'])->default('draft');
             $table->json('detail');
-            $table->dateTime('birthday');
             $table->timestamps();
         });
     }

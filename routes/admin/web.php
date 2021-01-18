@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountantController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\DetailController;
@@ -31,3 +32,4 @@ Route::group(['prefix'=>'manage'],function (){
     Route::resource('specifications', SpecificationController::class)->except('show');
     Route::resource('details', DetailController::class)->except('index','show');
 });
+Route::get('accountants', [AccountantController::class,'__invoke'])->name('accountants');

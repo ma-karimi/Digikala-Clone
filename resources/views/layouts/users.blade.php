@@ -42,7 +42,7 @@
                         <a class="m-2 btn" href="{{route('admin.orders.index')}}">{{ __('Orders') }}</a>
                         <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Users') }}</a>
                         <a class="m-2 btn" href="{{route('admin.products.index')}}">{{ __('Product Manager') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Accountants') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.accountants')}}">{{ __('Accountants') }}</a>
                         <a class="m-2 btn" href="">{{ __('Discounts') }}</a>
                         <a class="m-2 btn" href="">{{ __('Site Setting') }}</a>
                     @else
