@@ -35,3 +35,6 @@ Route::group(['prefix'=>'manage'],function (){
 });
 Route::get('accountants', [AccountantController::class,'__invoke'])->name('accountants');
 Route::resource('discounts', DiscountController::class)->except('show');
+Route::group(['prefix'=>'setting'],function () {
+    Route::resource('menus', ProductController::class); #todo:show method write later
+});
