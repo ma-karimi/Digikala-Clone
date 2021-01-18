@@ -10,7 +10,7 @@ interface DiscountRepositoryInterface
 
     public function store($validated);
 
-    public function update();
+    public function update($discount, $validated);
 
-    public function delete();
+    public function delete($discount);
 }

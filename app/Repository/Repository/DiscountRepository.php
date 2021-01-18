@@ -35,12 +35,12 @@ class DiscountRepository implements DiscountRepositoryInterface
         Discount::create($validated);
     }
 
-    public function update()
+    public function update($discount, $validated)
     {
-        // TODO: Implement update() method.
+        $discount->update($validated);
     }
 
-    public function delete()
+    public function delete($discount)
     {
         // TODO: Implement delete() method.
     }

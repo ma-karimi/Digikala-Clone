@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDiscountRequest;
+use App\Http\Requests\UpdateDiscountRequest;
 use App\Models\Discount;
 use App\Repository\Interfaces\DiscountRepositoryInterface;
 use Illuminate\Http\Request;
@@ -56,17 +57,6 @@ class DiscountController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Discount  $discount
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Discount $discount)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Discount  $discount
@@ -74,7 +64,8 @@ class DiscountController extends Controller
      */
     public function edit(Discount $discount)
     {
-        dd('edit');
+        return view('admin.discounts.edit')
+            ->withDiscount($discount);
     }
 
     /**
@@ -84,9 +75,11 @@ class DiscountController extends Controller
      * @param  \App\Models\Discount  $discount
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discount $discount)
+    public function update(UpdateDiscountRequest $request, Discount $discount)
     {
-        //
+        $validated = $request->validated();
+        $this->discountRepository->update($discount, $validated);
+        return redirect()->route('admin.discounts.index');
     }
 
     /**
