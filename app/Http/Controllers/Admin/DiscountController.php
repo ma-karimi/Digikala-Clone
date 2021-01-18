@@ -90,6 +90,7 @@ class DiscountController extends Controller
      */
     public function destroy(Discount $discount)
     {
-        dd('delete');
+        $this->discountRepository->delete($discount);
+        return redirect()->back();
     }
 }

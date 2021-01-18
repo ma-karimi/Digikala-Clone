@@ -24,11 +24,11 @@
                             <tr>
                                 <ul class="row" style="list-style-type: none" data-label="sorting by">
                                     <span style="border-bottom: 2px solid red">{{__('Sorting')}}</span>
-                                    <form action="{{route('admin.users.index')}}" method="get">
+                                    <form action="{{route('admin.discounts.index')}}" method="get">
                                         @csrf
-                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'all', 'label'=>'All'])@endcomponent
-                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'active', 'label'=>'Active'])@endcomponent
-                                        @component('components.sort-list',['route'=>'admin.users.index','value'=>'deactive', 'label'=>'Deactive'])@endcomponent
+                                        @component('components.sort-list',['route'=>'admin.discounts.index','value'=>'all', 'label'=>'All'])@endcomponent
+                                        @component('components.sort-list',['route'=>'admin.discounts.index','value'=>'active', 'label'=>'Active'])@endcomponent
+                                        @component('components.sort-list',['route'=>'admin.discounts.index','value'=>'deactive', 'label'=>'Deactive'])@endcomponent
                                     </form>
                                     </li>
                                 </ul>

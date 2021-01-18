@@ -42,6 +42,6 @@ class DiscountRepository implements DiscountRepositoryInterface
 
     public function delete($discount)
     {
-        // TODO: Implement delete() method.
+        $discount->delete();
     }
 }
