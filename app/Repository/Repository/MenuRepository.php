@@ -21,13 +21,13 @@ class MenuRepository implements MenuRepositoryInterface
         Menu::create($validated);
     }
 
-    public function update()
+    public function update($validated, $menu)
     {
-        // TODO: Implement update() method.
+        $menu->update($validated);
     }
 
-    public function delete()
+    public function delete($menu)
     {
-        // TODO: Implement delete() method.
+        $menu->delete();
     }
 }

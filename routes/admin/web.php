@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('users', UserController::class)->except('create','store','edit');
 Route::resource('orders', OrderController::class)->except('create','store','edit');
+
 Route::group(['prefix'=>'manage'],function (){
    Route::resource('products', ProductController::class); #todo:show method write later
    Route::resource('categories', CategoryController::class)->except('show');
@@ -34,8 +35,10 @@ Route::group(['prefix'=>'manage'],function (){
     Route::resource('specifications', SpecificationController::class)->except('show');
     Route::resource('details', DetailController::class)->except('index','show');
 });
+
 Route::get('accountants', [AccountantController::class,'__invoke'])->name('accountants');
 Route::resource('discounts', DiscountController::class)->except('show');
+
 Route::group(['prefix'=>'setting'],function () {
-    Route::resource('menus', MenuController::class); #todo:show method write later
+    Route::resource('menus', MenuController::class)->except('show'); #todo:show method write later
 });

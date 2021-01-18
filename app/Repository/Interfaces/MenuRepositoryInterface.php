@@ -10,7 +10,7 @@ interface MenuRepositoryInterface
 
     public function store($validated);
 
-    public function update();
+    public function update($validated, $menu);
 
-    public function delete();
+    public function delete($menu);
 }

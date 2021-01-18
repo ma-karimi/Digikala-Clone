@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDiscountRequest;
 use App\Http\Requests\StoreMenuRequest;
+use App\Http\Requests\UpdateMenuRequest;
 use App\Models\Menu;
 use App\Repository\Interfaces\MenuRepositoryInterface;
 use Illuminate\Http\Request;
@@ -56,16 +57,6 @@ class MenuController extends Controller
         return redirect()->route('admin.menus.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Menu $menu)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +66,8 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('admin.setting.menus.edit')
+            ->withMenu($menu);
     }
 
     /**
@@ -85,9 +77,11 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menu $menu)
+    public function update(UpdateMenuRequest $request, Menu $menu)
     {
-        //
+        $validated = $request->validated();
+        $this->menuRepository->update($validated, $menu);
+        return redirect()->route('admin.menus.index');
     }
 
     /**
@@ -98,6 +92,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $this->menuRepository->delete($menu);
+        return redirect()->back();
     }
 }
