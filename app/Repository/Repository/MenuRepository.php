@@ -16,9 +16,9 @@ class MenuRepository implements MenuRepositoryInterface
         return $menus;
     }
 
-    public function store()
+    public function store($validated)
     {
-        // TODO: Implement store() method.
+        Menu::create($validated);
     }
 
     public function update()

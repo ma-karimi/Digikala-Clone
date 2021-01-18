@@ -10,20 +10,15 @@
 
                     <div class="card">
                         <div class="card-header border-0 d-flex justify-content-between">
-                            <span class="text-danger font-weight-bold">{{ __('Comments') }}</span>
+                            <span class="text-danger font-weight-bold">{{ __('Menu') }}</span>
+                            <a href="{{route('admin.menus.create')}}" class="btn"><i style="color: green" class="fas fa-lg fa-plus"></i></a>
                         </div>
 
                         <div class="card-body row d-flex justify-content-start">
-                            <div class="card col-md-12">
-                                <div class="card-body">
-                                    <div id="accordion">
-                                        @foreach($menus as $menu)
-                                            @component('components.menu-card',['title'=>$menu->title,'title2'=>$menu->en_title,
-                                            'route'=>$menu->route,'menu'=>$menu,'icon'=>$menu->icon])@endcomponent
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
+                            @foreach($menus as $menu)
+                                @component('components.menu-card',['title'=>$menu->title,'title2'=>$menu->en_title,
+                                'route'=>$menu->route,'menu'=>$menu,'icon'=>$menu->icon])@endcomponent
+                            @endforeach
                         </div>
 
                         <div class="row justify-content-center">
