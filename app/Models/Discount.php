@@ -9,7 +9,7 @@ class Discount extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['value', 'count', 'expire_time', 'max_price', 'status'];
+    protected $fillable = ['title', 'value', 'count', 'expire_time', 'max_price', 'status'];
 
     public function orders()
     {
