@@ -26,21 +26,26 @@ class ImageRepository implements ImageRepositoryInterface
        }
     }
 
-    public function update($validated, $request, $product)
+    public function update($validated, $request, $model)
     {
-        $pictue_name = Carbon::now()->timestamp . '.' . $validated['images']->getClientOriginalExtension();
-        $request['path'] = $validated['images']->storePubliclyAs('product', $pictue_name);
-
-        $product->image->update([
-            'alt' => $validated['alt'],
-            'path' => $request['path'],
-            'imageable_type' => $request['imageable_type'],
-            'imageable_id' => $request['imageable_id'],
-        ]);
+        $this->delete($model);
+        $this->create($validated, $request, $model);
+//        $pictue_name = Carbon::now()->timestamp . '.' . $validated['images']->getClientOriginalExtension();
+//        $request['path'] = $validated['images']->storePubliclyAs('product', $pictue_name);
+//
+//        $model->image->update([
+//            'alt' => $validated['alt'],
+//            'path' => $request['path'],
+//            'imageable_type' => $request['imageable_type'],
+//            'imageable_id' => $request['imageable_id'],
+//        ]);
     }
 
-    public function delete($product)
+    public function delete($model)
     {
-        Storage::delete($product->image->path);
+        foreach ($model->images as $image){
+            Storage::delete($image->path);
+            $image->delete();
+        }
     }
 }

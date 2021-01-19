@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSliderRequest;
+use App\Http\Requests\UpdateSliderRequest;
 use App\Models\Category;
 use App\Models\Slider;
+use App\Repository\Interfaces\CategoryRepositoryInterface;
 use App\Repository\Interfaces\SliderRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -15,10 +17,15 @@ class SliderController extends Controller
      * @var SliderRepositoryInterface
      */
     private $sliderRepository;
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    private $categoryRepository;
 
-    public function __construct(SliderRepositoryInterface $sliderRepository)
+    public function __construct(SliderRepositoryInterface $sliderRepository,CategoryRepositoryInterface $categoryRepository)
     {
         $this->sliderRepository = $sliderRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -40,7 +47,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = $this->categoryRepository->select();
         return view('admin.setting.sliders.create')
             ->withCategories($categories);
     }
@@ -77,7 +84,10 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        $categories = $this->categoryRepository->select();
+        return view('admin.setting.sliders.edit')
+            ->withCategories($categories)
+            ->withSlider($slider);
     }
 
     /**
@@ -87,9 +97,11 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(UpdateSliderRequest $request, Slider $slider)
     {
-        //
+        $validated = $request->validated();
+        $this->sliderRepository->update($slider, $validated, $request);
+        return redirect()->route('admin.sliders.index');
     }
 
     /**

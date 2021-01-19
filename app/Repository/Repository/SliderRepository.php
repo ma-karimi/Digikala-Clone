@@ -32,9 +32,10 @@ class SliderRepository implements SliderRepositoryInterface
         $this->imageRepository->create($valideted, $request, $slider);
     }
 
-    public function update($slider, $validated)
+    public function update($slider, $validated, $request)
     {
-        // TODO: Implement update() method.
+        $slider->update($validated);
+        $this->imageRepository->update($validated, $request, $slider);
     }
 
     public function delete($slider)
