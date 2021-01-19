@@ -20,4 +20,9 @@ class Slider extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class,'imageable');
+    }
 }

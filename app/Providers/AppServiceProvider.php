@@ -12,6 +12,7 @@ use App\Repository\Interfaces\ImageRepositoryInterface;
 use App\Repository\Interfaces\MenuRepositoryInterface;
 use App\Repository\Interfaces\OrderRepositoryInterface;
 use App\Repository\Interfaces\ProductRepositoryInterface;
+use App\Repository\Interfaces\SliderRepositoryInterface;
 use App\Repository\Interfaces\SpecificationRepositoryInterface;
 use App\Repository\Interfaces\UserRepositoryInterface;
 use App\Repository\Repository\AccountantRepository;
@@ -24,6 +25,7 @@ use App\Repository\Repository\ImageRepository;
 use App\Repository\Repository\MenuRepository;
 use App\Repository\Repository\OrderRepository;
 use App\Repository\Repository\ProductRepository;
+use App\Repository\Repository\SliderRepository;
 use App\Repository\Repository\SpecificationRepository;
 use App\Repository\Repository\UserRepository;
 use Illuminate\Pagination\Paginator;
@@ -50,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(AccountantRepositoryInterface::class,AccountantRepository::class);
         $this->app->bind(DiscountRepositoryInterface::class,DiscountRepository::class);
         $this->app->bind(MenuRepositoryInterface::class,MenuRepository::class);
+        $this->app->bind(SliderRepositoryInterface::class,SliderRepository::class);
     }
 
     /**

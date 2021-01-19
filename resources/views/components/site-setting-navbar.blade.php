@@ -10,7 +10,7 @@
                 <a class="nav-link" href="{{route('admin.menus.index')}}">{{__('Menus')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.menus.index')}}">{{__('Sliders')}}</a>
+                <a class="nav-link" href="{{route('admin.sliders.index')}}">{{__('Sliders')}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.menus.index')}}">{{__('Site Setting')}}</a>
