@@ -48,6 +48,7 @@
                                                 </button>
                                             </form>
                                             <div><a class="btn" href="{{route('admin.sliders.edit',$slider)}}"><i class="fas fa-edit"></i></a></div>
+                                            <div><a class="btn" href="{{route('admin.sliders.show',$slider)}}"><i class="fas fa-eye"></i></a></div>
                                         </td>
                                     </tr>
                                 @endforeach
