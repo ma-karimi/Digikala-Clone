@@ -6,9 +6,9 @@ namespace App\Repository\Interfaces;
 
 interface ImageRepositoryInterface
 {
-    public function create($validated,$request,$product);
+    public function create($validated,$request,$model);
 
-    public function update($validated,$request,$product);
+    public function update($validated,$request,$model);
 
-    public function delete($product);
+    public function delete($model);
 }

@@ -17,11 +17,7 @@
                         <div class="card-body">
                             @component('components.slider',['slider'=>$slider])
                             @endcomponent
-                        </div>
-
-                        <div class="row justify-content-center">
-{{--                            {{ $menus->links() }}--}}
-                        </div>
+                        </div>>
                     </div>
             </div>
         </div>

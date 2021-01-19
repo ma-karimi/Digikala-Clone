@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="row justify-content-center">
-{{--                            {{ $menus->links() }}--}}
+                            {{ $sliders->links() }}
                         </div>
                     </div>
             </div>

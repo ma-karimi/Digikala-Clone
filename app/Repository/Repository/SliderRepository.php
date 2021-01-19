@@ -22,7 +22,7 @@ class SliderRepository implements SliderRepositoryInterface
 
     public function all()
     {
-        $sliders = Slider::with('images','category')->paginate(10);
+        $sliders = Slider::with('images','category')->paginate(5);
         return $sliders;
     }
 
@@ -40,6 +40,7 @@ class SliderRepository implements SliderRepositoryInterface
 
     public function delete($slider)
     {
-        // TODO: Implement delete() method.
+        $this->imageRepository->delete($slider);
+        $slider->delete();
     }
 }

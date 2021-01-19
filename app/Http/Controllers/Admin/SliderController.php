@@ -113,6 +113,7 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $this->sliderRepository->delete($slider);
+        return redirect()->back();
     }
 }
