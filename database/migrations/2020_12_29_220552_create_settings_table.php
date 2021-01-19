@@ -14,8 +14,9 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
+            $table->id();
             $table->boolean('status')->default(1);
-            $table->string('status_msg');
+            $table->string('status_msg')->default('Site Is Under Construction');
             $table->integer('free_shipment_limit');
         });
     }

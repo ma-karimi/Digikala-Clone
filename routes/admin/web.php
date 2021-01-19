@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SpecificationController;
 use App\Http\Controllers\Admin\UserController;
@@ -43,4 +44,5 @@ Route::resource('discounts', DiscountController::class)->except('show');
 Route::group(['prefix'=>'setting'],function () {
     Route::resource('menus', MenuController::class)->except('show');
     Route::resource('sliders', SliderController::class);
+    Route::resource('sites', SiteController::class)->only('index','update');
 });

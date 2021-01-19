@@ -13,10 +13,7 @@
                 <a class="nav-link" href="{{route('admin.sliders.index')}}">{{__('Sliders')}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.menus.index')}}">{{__('Site Setting')}}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.menus.index')}}">{{__('Comments')}}</a>
+                <a class="nav-link" href="{{route('admin.sites.index')}}">{{__('Site Setting')}}</a>
             </li>
         </ul>
     </div>
