@@ -13,11 +13,11 @@ class Rate extends Model
 
     public function user()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function product()
     {
-        $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
 }

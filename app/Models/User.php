@@ -46,36 +46,36 @@ class User extends Authenticatable
 
     public function locations()
     {
-        $this->hasMany(Location::class, 'user_id');
+        return $this->hasMany(Location::class, 'user_id');
     }
 
     public function favorites()
     {
-        $this->hasMany(Favorite::class, 'user_id');
+        return $this->hasMany(Favorite::class, 'user_id');
     }
 
     public function orders()
     {
-        $this->hasMany(Order::class, 'user_id');
+        return $this->hasMany(Order::class, 'user_id');
     }
 
     public function rates()
     {
-        $this->hasMany(Rate::class, 'user_id');
+        return $this->hasMany(Rate::class, 'user_id');
     }
 
     public function comments()
     {
-    $this->hasMany(Comment::class, 'user_id');
+        return $this->hasMany(Comment::class, 'user_id');
     }
 
     public function likes()
     {
-        $this->hasMany(Like::class, 'user_id');
+        return $this->hasMany(Like::class, 'user_id');
     }
 
     public function lastseens()
     {
-        $this->hasMany(Lastseen::class, 'user_id');
+        return $this->hasMany(Lastseen::class, 'user_id');
     }
 }

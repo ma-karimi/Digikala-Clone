@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#{{$modal_id}}"><i class="fal fa-edit"></i></button>
+<button type="button" class="btn btn-light" data-toggle="modal" data-target="#{{$modal_id}}"><i class="fas fa-user-edit"></i></button>
 
 <!-- Modal -->
 <div class="modal fade" id="{{$modal_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

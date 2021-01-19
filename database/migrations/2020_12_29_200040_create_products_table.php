@@ -16,14 +16,17 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('en-title');
+            $table->string('en_title');
             $table->string('slug');
+            $table->longText('review')->nullable();
+            $table->integer('price');
+            $table->integer('quantity');
             $table->foreignId('brand_id');
             $table->foreign('brand_id')
                 ->references('id')
                 ->on('brands')
                 ->cascadeOnDelete();
-            $table->enum('status',['draft', 'waiting', 'published', 'denied', 'unavailable']);
+            $table->enum('status',['draft', 'waiting', 'published', 'denied', 'unavailable'])->default('draft');
             $table->json('detail');
             $table->timestamps();
         });

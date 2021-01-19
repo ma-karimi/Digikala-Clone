@@ -14,31 +14,31 @@ class Order extends Model
 
     public function user()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function payments()
     {
-        $this->hasMany(Payment::class,'order_id');
+        return $this->hasMany(Payment::class,'order_id');
     }
 
     public function shipments()
     {
-        $this->hasMany(Shipment::class,'order_id');
+        return $this->hasMany(Shipment::class,'order_id');
     }
 
     public function products()
     {
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function discount()
     {
-        $this->hasOne(Discount::class);
+        return $this->hasOne(Discount::class);
     }
 
     public function factor()
     {
-        $this->hasOne(Factor::class);
+        return $this->hasOne(Factor::class);
     }
 }

@@ -8,21 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
     protected $fillable = ['parent_id', 'title'];
-    #todo: add category self join
+
+    protected $with = ['children'];
 
     public function products()
     {
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function slider()
     {
-        $this->hasOne(Slider::class);
+        return $this->hasOne(Slider::class);
     }
 
     public function incridible()
     {
-        $this->hasOne(Incridible::class);
+        return $this->hasOne(Incridible::class);
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id')->distinct('parent_id');
     }
 }

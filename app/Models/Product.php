@@ -9,45 +9,53 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'en_title', 'slug', 'brand_id', 'status', 'json'];
+    protected $fillable = ['title', 'en_title', 'slug', 'brand_id', 'status',
+        'json','review','detail','price','quantity'];
 
     public function orders()
     {
-        $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class);
     }
 
     public function categories()
     {
-        $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function rates()
     {
-        $this->hasMany(Rate::class, 'product_id');
+        return $this->hasMany(Rate::class, 'product_id');
     }
 
     public function comments()
     {
-        $this->hasMany(Comment::class, 'product_id');
+        return $this->hasMany(Comment::class, 'product_id');
     }
 
-    public function image()
+    public function images()
     {
-        return $this->morphOne(Image::class,'imageable');
+        return $this->morphMany(Image::class,'imageable');
     }
 
     public function brand()
     {
-        $this->hasOne(Brand::class);
+        return $this->hasOne(Brand::class);
     }
 
     public function sliders()
     {
-        $this->belongsToMany(Slider::class);
+        return $this->belongsToMany(Slider::class);
     }
 
     public function incridibles()
     {
-        $this->belongsToMany(Incridible::class);
+        return $this->belongsToMany(Incridible::class);
+    }
+
+    public function getAverageAttribute()
+    {
+        $avarage = $this->rates()->average('rate');
+        return $avarage;
+        #todo: test it with $product->average()
     }
 }

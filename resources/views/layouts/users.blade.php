@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Cms Project</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -41,10 +41,10 @@
                     @hasanyrole('super-admin|admin')
                         <a class="m-2 btn" href="{{route('admin.orders.index')}}">{{ __('Orders') }}</a>
                         <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Users') }}</a>
-                        <a class="m-2 btn" href="{{route('admin.users.index')}}">{{ __('Product Manger') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Accountants') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Discounts') }}</a>
-                        <a class="m-2 btn" href="">{{ __('Site Setting') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.products.index')}}">{{ __('Product Manager') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.accountants')}}">{{ __('Accountants') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.discounts.index')}}">{{ __('Discounts') }}</a>
+                        <a class="m-2 btn" href="{{route('admin.menus.index')}}">{{ __('Setting') }}</a>
                     @else
                         <a class="m-2 btn" href="">{{ __('Orders') }}</a>
                         <a class="m-2 btn" href="">{{ __('Favorites') }}</a>
@@ -102,6 +102,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 @yield('script')
 </body>
 </html>

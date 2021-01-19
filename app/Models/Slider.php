@@ -13,11 +13,16 @@ class Slider extends Model
 
     public function category()
     {
-        $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function products()
     {
-        $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class,'imageable');
     }
 }

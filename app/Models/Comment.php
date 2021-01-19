@@ -13,16 +13,16 @@ class Comment extends Model
 
     public function user()
     {
-        $this->hasOne(User::class);
+        return $this->hasOne(User::class,'id');
     }
 
     public function product()
     {
-        $this->hasOne(Product::class);
+        return $this->hasOne(Product::class,'id','product_id');
     }
 
     public function likes()
     {
-        $this->hasMany(Like::class, 'comment_id');
+        return $this->hasMany(Like::class, 'comment_id');
     }
 }
